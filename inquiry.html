@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coupang 무첨가 증빙 서류 문의 · 와일드 그린즈 샐러두유</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+  :root {
+    --forest: #2D5A32;
+    --sage: #B9D2BD;
+    --cream: #F2EDE2;
+    --warm: #C9B894;
+    --ink: #1A1A1C;
+    --ink-soft: #4A4A4D;
+    --ink-mute: #767676;
+    --line: rgba(26,26,28,0.10);
+    --line-soft: rgba(26,26,28,0.06);
+    --paper: #FBF9F4;
+    --warn: #B45309;
+    --warn-bg: #FFF7E6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 17px; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Noto Sans KR', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+  header.hero {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--forest);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 42px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .meta {
+    background: white;
+    border: 1px solid var(--line-soft);
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .meta-label {
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .meta-value {
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-top: 56px;
+    margin-bottom: 8px;
+  }
+  h2.section-label {
+    font-size: 11px;
+    color: var(--forest);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-top: 48px;
+    margin-bottom: 16px;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  p { margin-bottom: 16px; color: var(--ink-soft); }
+  .lead { font-size: 19px; color: var(--ink); line-height: 1.55; margin-bottom: 24px; }
+  .letter {
+    background: white;
+    border: 1px solid var(--line-soft);
+    border-radius: 16px;
+    padding: 40px 36px;
+    margin: 24px 0;
+    box-shadow: 0 1px 0 rgba(26,26,28,0.02), 0 4px 24px rgba(26,26,28,0.04);
+  }
+  .letter .subject {
+    background: var(--cream);
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 28px;
+    border-left: 3px solid var(--forest);
+  }
+  .letter p { color: var(--ink); margin-bottom: 16px; font-size: 16px; line-height: 1.7; }
+  .letter ol { margin: 14px 0 18px 22px; }
+  .letter ol li { color: var(--ink); margin-bottom: 6px; line-height: 1.6; }
+  .letter .signoff {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .question-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0 28px;
+  }
+  .q-card {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 22px 24px;
+    border-left: 3px solid var(--forest);
+  }
+  .q-num {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--forest);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .q-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .q-body {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .checklist {
+    background: white;
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+  .checklist h3 { margin-top: 0; font-size: 15px; color: var(--forest); text-transform: uppercase; letter-spacing: 0.08em; }
+  .checklist ul { list-style: none; padding: 0; margin-top: 12px; }
+  .checklist li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.55;
+    border-bottom: 1px dashed var(--line-soft);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--forest);
+    border-radius: 4px;
+    background: white;
+  }
+  .timeline {
+    margin: 20px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .timeline li {
+    position: relative;
+    padding: 10px 0 10px 32px;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline li::before {
+    content: counter(item);
+    counter-increment: item;
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    background: var(--forest);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .timeline { counter-reset: item; }
+  .memo {
+    background: var(--warn-bg);
+    border: 1px solid rgba(180, 83, 9, 0.2);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 28px 0;
+  }
+  .memo h3 {
+    font-size: 13px;
+    color: var(--warn);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .memo p { font-size: 14px; color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+  .memo p:last-child { margin-bottom: 0; }
+  .memo strong { color: var(--warn); font-weight: 700; }
+  .copy-bar {
+    position: sticky;
+    bottom: 24px;
+    margin: 32px 0 0;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .copy-btn {
+    background: var(--forest);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 24px rgba(45,90,50,0.35);
+    pointer-events: auto;
+    transition: transform .2s, background .2s;
+  }
+  .copy-btn:hover { transform: translateY(-1px); background: #1F4023; }
+  .copy-btn.copied { background: var(--ink); }
+  footer.foot {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--ink-mute);
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 40px 20px 80px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    .letter { padding: 28px 22px; }
+    .meta-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Coupang Vendor Support · 무첨가 표시 소명</div>
+    <h1>무첨가 증빙 서류 안내 요청</h1>
+    <p class="sub">와일드 그린즈 샐러두유 · 재니스바스켓 입점 상품. '유기농' 표시는 통과 처리되었고, 별개 항목인 '무첨가' 표시에 대한 추가 서류 가이드를 Coupang에 직접 문의하는 메일.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="meta-label">Date</div><div class="meta-value">2026-05-20</div></div>
+      <div class="meta"><div class="meta-label">Owner</div><div class="meta-value">Justin (운영) · 박정은 대표 명의 발송</div></div>
+      <div class="meta"><div class="meta-label">Brand / SKU</div><div class="meta-value">AVO 와일드 그린즈 샐러두유</div></div>
+      <div class="meta"><div class="meta-label">Status</div><div class="meta-value">판매 정지 해제 대기</div></div>
+    </div>
+  </header>
+
+  <h2 class="section-label">본문 · 복붙용</h2>
+
+  <div class="letter" id="letterBody">
+    <div class="subject">[문의] '무첨가' 표시 관련 필요 증빙 서류 안내 요청 — 와일드 그린즈 샐러두유 (재니스바스켓)</div>
+
+    <p>쿠팡 셀러 운영팀 담당자님께,</p>
+
+    <p>안녕하세요. 재니스바스켓 입점 상품 「와일드 그린즈 샐러두유」 표시·광고 심사 건 관련 추가 문의드립니다.</p>
+
+    <p>지난 회신에서 '유기농' 표시는 인증서 확인 후 통과 처리되었으나, '무첨가' 표시는 유기농과는 별개 항목이며 원료 리스트만으로는 판단이 어려워 별도 서류 소명이 필요하다는 안내를 받았습니다. 이 부분 빠르게 보완하여 판매 재개를 진행하고자 합니다.</p>
+
+    <p>제품은 단일 제조원 (농업회사법인 대학두유(주) · 서울대학교 평창캠퍼스 내) 에서 생산되며, 다음 주요 원료 구성에 대해 각각 무첨가 입증이 필요한 것으로 이해하고 있습니다.</p>
+
+    <ol>
+      <li>원액두유 (전두유 공법 · NonGMO 국산 백태 100% · 두유고형분 7% 이상 · 95.205%)</li>
+      <li>18종 유기농 과채 동결건조 혼합 분말 (당근·케일·시금치·양배추·단호박·유자·매실·브로콜리·미나리·무청·밀순·옥수수 등 모두 국산 유기농 과채)</li>
+      <li>코코넛꽃액즙분말 (백설탕 대체 천연 단맛)</li>
+      <li>해조분말 (식물성 칼슘 유래)</li>
+    </ol>
+
+    <p>해당 제품은 4종 첨가물 (안정제·유화제·증점제·향료) 전무 표시로 광고되고 있으며, 이 표시가 어떤 서류로 입증 가능한지 확인이 필요합니다.</p>
+
+    <p>다만 '무첨가 증명서'라는 정형화된 명칭의 서류가 별도로 존재하지 않아, 어떤 형태의 서류를 어디서 발급받아 제출해야 인정되는지 구체적인 가이드가 필요한 상황입니다.</p>
+
+    <p>아래 세 가지 항목에 대해 구체적으로 안내 부탁드립니다.</p>
+
+    <div class="question-grid">
+      <div class="q-card">
+        <div class="q-num">Question 01</div>
+        <div class="q-title">필요 서류의 종류 (서류 명칭·형식)</div>
+        <div class="q-body">어떤 명칭·형식의 서류가 인정되는지 알려주시면 감사하겠습니다.<br>예시) 제조공정도, 원료배합비율표, 시험성적서, 자가품질검사 결과서, 제조사 확인서, 원료원산지증명서 등 — 이 중 어떤 조합이 필요한지.</div>
+      </div>
+      <div class="q-card">
+        <div class="q-num">Question 02</div>
+        <div class="q-title">발급 기관·주체 (Who issues)</div>
+        <div class="q-body">어느 기관에서 발급된 서류가 유효한지 알려주시면 감사하겠습니다.<br>예시) 제조사 자체 발행 / 식약처 등록 공인시험기관 (한국식품연구원, 한국기능식품연구원 등) / 제3자 분석기관 / 식약처 본청 — 어느 수준의 발급처가 필요한지.</div>
+      </div>
+      <div class="q-card">
+        <div class="q-num">Question 03</div>
+        <div class="q-title">서류 기재 필수 내용 (What must be stated)</div>
+        <div class="q-body">해당 서류에 어떤 항목·문구가 명시되어야 무첨가 입증으로 인정되는지 알려주시면 감사하겠습니다.<br>예시) '무첨가' 대상 항목 명시 (인공감미료·합성보존료·합성착색료·합성착향료 등 어디까지 표기되어야 하는지) / 미투입 확인 문구 / 검출 한계 기준 명시 여부 / 제조 공정상 미사용 확인 vs. 최종 제품 검출 시험 결과 — 둘 중 어느 형태가 인정되는지.</div>
+      </div>
+    </div>
+
+    <p>본 건 빠르게 정리되어야 판매 재개가 가능한 상황이라, 가능한 범위에서 빠른 회신 부탁드립니다. 가이드 받는 즉시 제조사 측과 연계하여 서류 준비 진행하겠습니다.</p>
+
+    <p>회신 주시면 감사하겠습니다.</p>
+
+    <div class="signoff">
+      재니스바스켓 / AVO 와일드 그린즈 샐러두유 입점 담당<br>
+      박정은 대표
+    </div>
+  </div>
+
+  <div class="copy-bar">
+    <button class="copy-btn" id="copyBtn">📋 본문 전체 복사</button>
+  </div>
+
+  <h2 class="section-label">보내기 전 체크리스트</h2>
+  <div class="checklist">
+    <ul>
+      <li>직전 Coupang 회신 메일 본문 / 티켓 번호 인용 가능하면 본문 상단에 추가 (담당자 빠르게 매칭)</li>
+      <li>와일드 그린즈 샐러두유 상품 옵션 ID / 카탈로그 번호 확인 후 본문 또는 제목에 첨부</li>
+      <li>박정은 대표 명의 셀러 계정에서 발송 (Justin 대리 작성하더라도 명의는 박정은 대표 유지)</li>
+      <li>회신 메일 받으면 즉시 원본 그대로 캡쳐해서 운영 폴더에 저장 (소명 진행상태 기록용)</li>
+    </ul>
+  </div>
+
+  <h2 class="section-label">회신 받은 뒤 동선</h2>
+  <ol class="timeline">
+    <li>Coupang이 어떤 서류 요구하는지 확인되면 → 대학두유(주) (단일 제조원) 에 통합 양식으로 요청. 원액두유·18종 과채 동결건조 분말·코코넛꽃액즙분말·해조분말 각 원료별 무첨가 확인 항목 명시 요청</li>
+    <li>서류 받으면 박정은 대표 명의로 Coupang Wing 재제출</li>
+    <li>같은 서류 세트를 Naver SmartStore 무첨가 표시에도 사용 가능한지 확인 (선제 방어)</li>
+    <li>향후 AVO Korea Ltd. 명의 전환 시점에 동일 서류 갱신 필요 여부도 사전 체크</li>
+  </ol>
+
+  <h2 class="section-label">메모</h2>
+  <div class="memo">
+    <h3>플랫폼 vs 식약처 기준</h3>
+    <p>'무첨가' 표시는 식약처 고시 「식품등의 표시·광고에 관한 법률」 기준 제2조·제8조의 영향을 받음. Coupang은 플랫폼 자체 심사 기준이 식약처 기준보다 보수적으로 운영되는 경향이 있어서, <strong>식약처 기준 충족 = Coupang 통과 가 아닐 수 있음.</strong> 그래서 플랫폼이 무엇을 인정하는지 직접 물어보는 것이 가장 빠른 길.</p>
+  </div>
+
+  <div class="memo">
+    <h3>예상 시나리오</h3>
+    <p>Coupang이 <strong>"제조사 확인서면 충분"</strong> 회신하면 → 대학두유(주) 단일 제조원이므로 1장으로 통합 가능. 본사 직인 + 대표이사 직인 + 원료별 미사용 첨가물 리스트 (안정제·유화제·증점제·향료 외) 명시. ~3일 안에 처리 가능.</p>
+    <p>Coupang이 <strong>"공인시험기관 시험성적서 필요"</strong> 회신하면 → 비용 발생 (성적서 1건당 ₩30–80만원, 항목 수에 따라). 1–2주 소요. 이 경우 Naver / 자사몰까지 같은 성적서로 커버되니까 결과적으로 자산이 됨.</p>
+  </div>
+
+  <footer class="foot">
+    AVO 와일드 그린즈 샐러두유 · 재니스바스켓 · 2026-05-20<br>
+    Internal · Vendor Communication Draft
+  </footer>
+
+</div>
+
+<script>
+  const btn = document.getElementById('copyBtn');
+  const letter = document.getElementById('letterBody');
+  btn.addEventListener('click', async () => {
+    const text = letter.innerText.trim();
+    try {
+      await navigator.clipboard.writeText(text);
+      btn.textContent = '✓ 복사됨';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 본문 전체 복사';
+        btn.classList.remove('copied');
+      }, 1800);
+    } catch (e) {
+      alert('복사 실패. 본문을 직접 선택해서 복사해주세요.');
+    }
+  });
+</script>
+
+</body>
+</html>
