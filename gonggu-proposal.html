@@ -3,585 +3,853 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AVO 와일드 그린즈 샐러두유 · 공구제안서</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<title>AVO · 와일드 그린즈 샐러두유 · 공동구매 제안서</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
 <style>
-  :root {
-    --forest: #2D5A32;
-    --forest-d: #1F4023;
-    --sage: #B9D2BD;
-    --cream: #F2EDE2;
-    --warm: #C9B894;
-    --ink: #1A1A1C;
-    --ink-soft: #4A4A4D;
-    --ink-mute: #767676;
-    --line: rgba(26,26,28,0.18);
-    --line-soft: rgba(26,26,28,0.10);
-    --paper: #FBF9F4;
-    --highlight: #FFF59D;
-    --highlight-blue: #BBDEFB;
-    --header-band: #D8E5DA;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 14px; }
-  body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Noto Sans KR', sans-serif;
-    background: #E8E8E8;
-    color: var(--ink);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    padding: 24px 0;
-  }
-  .page {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: white;
-    padding: 48px 56px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    border-radius: 8px;
-  }
-  .nav-bar {
-    max-width: 1100px;
-    margin: 0 auto 16px;
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    padding: 0 8px;
-  }
-  .nav-bar a {
-    background: white;
-    border: 1px solid var(--line-soft);
-    border-radius: 999px;
-    padding: 7px 14px;
-    color: var(--ink-soft);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-  }
-  .nav-bar a.current { background: var(--ink); color: white; border-color: var(--ink); }
+:root {
+  --forest: #2D5A32;
+  --forest-deep: #1F3F23;
+  --sage: #B9D2BD;
+  --sage-light: #D5E5D8;
+  --cream: #F2EDE2;
+  --cream-deep: #EAE2D2;
+  --warm: #C9B894;
+  --warm-light: #E3D7BD;
+  --ink: #1A1A1C;
+  --ink-soft: #4A4A4C;
+  --ink-mute: #8A8A8C;
+  --rule: rgba(26, 26, 28, 0.12);
+  --rule-soft: rgba(26, 26, 28, 0.06);
+  --ok: #2D5A32;
+  --ok-bg: rgba(45, 90, 50, 0.10);
+  --ban: #862F2F;
+  --ban-bg: rgba(180, 60, 60, 0.10);
+  --gold: #C9A04A;
+  --highlight-y: #FFF59D;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 80px;
+}
+::selection { background: var(--forest); color: var(--cream); }
 
-  /* DOC HEADER */
-  .doc-title-band {
-    background: var(--header-band);
-    border: 1.5px solid var(--forest);
-    padding: 16px 24px;
-    text-align: center;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--forest);
-    letter-spacing: 0.2em;
-    border-radius: 6px;
-    margin-bottom: 4px;
-  }
-  .doc-date {
-    text-align: right;
-    font-size: 11px;
-    color: var(--ink-soft);
-    margin-bottom: 14px;
-  }
+.topnav {
+  position: sticky;
+  top: 0;
+  background: rgba(242,237,226,0.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--rule);
+  z-index: 100;
+  padding: 14px 32px;
+}
+.topnav .row {
+  max-width: 1240px; margin: 0 auto;
+  display: flex; align-items: baseline; justify-content: space-between;
+}
+.topnav .brand { font-weight: 700; color: var(--forest); font-size: 13px; letter-spacing: 0.04em; }
+.topnav .meta { font-size: 12px; color: var(--ink-mute); }
 
-  /* INFO BLOCK */
-  .info-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  .info-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-  .info-table th {
-    background: #F0F0F0;
-    border: 1px solid var(--line);
-    padding: 7px 10px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 11px;
-    color: var(--ink);
-    width: 100px;
-  }
-  .info-table td {
-    border: 1px solid var(--line);
-    padding: 7px 10px;
-    color: var(--ink);
-  }
-  .info-table td.fill { background: #FFFFE0; color: var(--ink-mute); font-style: italic; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
-  /* MAIN TABLE */
-  .pricing-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 18px;
-    font-size: 11.5px;
-  }
-  .pricing-table th {
-    background: #F0F0F0;
-    border: 1px solid var(--line);
-    padding: 8px 6px;
-    text-align: center;
-    font-weight: 600;
-    color: var(--ink);
-    font-size: 10.5px;
-  }
-  .pricing-table td {
-    border: 1px solid var(--line);
-    padding: 8px 6px;
-    text-align: center;
-    color: var(--ink);
-    vertical-align: middle;
-  }
-  .pricing-table .product-cell {
-    text-align: left;
-    font-weight: 600;
-    background: #FAFAFA;
-  }
-  .pricing-table .img-cell {
-    width: 80px;
-    padding: 4px;
-  }
-  .pricing-table .img-cell img {
-    max-width: 70px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  .pricing-table .img-placeholder {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--sage), var(--cream));
-    border-radius: 6px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--forest);
-    font-size: 10px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.2;
-    padding: 4px;
-  }
-  .pricing-table td.num {
-    font-variant-numeric: tabular-nums;
-    text-align: right;
-    font-feature-settings: "tnum";
-  }
-  .pricing-table td.yellow {
-    background: var(--highlight);
-    font-weight: 700;
-  }
-  .pricing-table td.blue {
-    background: var(--highlight-blue);
-    font-weight: 700;
-  }
-  .pricing-table td.bigo {
-    text-align: left;
-    font-size: 10.5px;
-    color: var(--ink-soft);
-    line-height: 1.4;
-  }
+/* HERO */
+.hero {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 48px;
+}
+.hero .eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--forest);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.hero .lede {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 720px;
+  margin-bottom: 32px;
+  line-height: 1.55;
+}
+.hero .strip {
+  display: flex; gap: 36px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.hero .strip .item .k {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-mute);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.hero .strip .item .v { color: var(--ink); font-weight: 500; }
 
-  /* OPERATIONAL BLOCKS */
-  .ops-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-  .ops-table th {
-    background: #F0F0F0;
-    border: 1px solid var(--line);
-    padding: 11px 14px;
-    text-align: left;
-    font-weight: 600;
-    color: var(--ink);
-    width: 130px;
-    font-size: 12px;
-  }
-  .ops-table td {
-    border: 1px solid var(--line);
-    padding: 11px 14px;
-    color: var(--ink);
-    line-height: 1.55;
-  }
-  .ops-table td ul {
-    margin: 0;
-    padding-left: 16px;
-  }
-  .ops-table td li {
-    margin-bottom: 3px;
-  }
+/* SECTIONS */
+section.slide {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 48px;
+  margin-bottom: 32px;
+  border: 1px solid var(--rule-soft);
+}
+.slide-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.slide-head .num {
+  background: var(--forest);
+  color: var(--cream);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+.slide-head .name {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-mute);
+  font-weight: 700;
+}
 
-  .vat-tag {
-    display: inline-block;
-    background: var(--cream);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--forest);
-    margin-left: 8px;
-    vertical-align: middle;
-  }
+h2.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+h3.section-sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+  letter-spacing: -0.005em;
+}
+.body-p { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; line-height: 1.6; }
+.body-p strong { color: var(--ink); font-weight: 600; }
 
-  .small-note {
-    font-size: 11px;
-    color: var(--ink-mute);
-    margin-top: 4px;
-    line-height: 1.5;
-  }
+ul.bullet { margin: 12px 0 14px 22px; color: var(--ink-soft); font-size: 14.5px; }
+ul.bullet li { margin-bottom: 6px; line-height: 1.55; }
+ul.bullet li strong { color: var(--ink); font-weight: 600; }
 
-  .doc-footer {
-    margin-top: 28px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line-soft);
-    font-size: 11px;
-    color: var(--ink-mute);
-    text-align: center;
-  }
+/* TABLES */
+table.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 14px 0;
+  font-size: 13.5px;
+}
+table.tbl thead th {
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--rule);
+}
+table.tbl td, table.tbl th {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--rule-soft);
+  text-align: left;
+  vertical-align: top;
+}
+table.tbl tr:last-child td { border-bottom: none; }
+table.tbl td.num { font-variant-numeric: tabular-nums; text-align: right; }
+table.tbl td.highlight { background: var(--sage-light); font-weight: 600; }
+table.tbl tr.highlight-row { background: var(--cream); }
+table.tbl tr.highlight-row td { font-weight: 600; }
 
-  @media print {
-    body { background: white; padding: 0; }
-    .nav-bar { display: none; }
-    .page { box-shadow: none; padding: 24px 32px; }
-  }
+/* PRICING TABLE — specialized */
+table.pricing-table th { background: var(--forest); color: white; padding: 13px 14px; }
+table.pricing-table .yellow { background: var(--highlight-y); font-weight: 700; }
+table.pricing-table tbody tr:hover { background: var(--cream); }
 
-  @media (max-width: 820px) {
-    .info-block { grid-template-columns: 1fr; }
-    .page { padding: 28px 20px; }
-    html { font-size: 12px; }
-    .pricing-table { font-size: 9.5px; }
-  }
+.option-banner {
+  background: var(--forest);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  margin-bottom: 0;
+}
+.option-banner.b {
+  background: var(--sage);
+  color: var(--forest-deep);
+}
+
+/* GRID LAYOUTS */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 14px 0; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0; }
+
+.card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.card .k {
+  font-size: 10px;
+  color: var(--forest);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.card .v { font-size: 16px; color: var(--ink); font-weight: 600; line-height: 1.4; }
+.card .sub { font-size: 12px; color: var(--ink-soft); margin-top: 3px; }
+
+/* SAY / AVOID */
+.say-avoid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 16px 0; }
+.say-avoid .say, .say-avoid .avoid {
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.say-avoid .say { background: var(--ok-bg); border: 1px solid rgba(45, 90, 50, 0.22); }
+.say-avoid .avoid { background: var(--ban-bg); border: 1px solid rgba(180, 60, 60, 0.22); }
+.say-avoid h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.say-avoid .say h4 { color: var(--ok); }
+.say-avoid .avoid h4 { color: var(--ban); }
+.say-avoid ul { list-style: none; padding: 0; margin: 0; }
+.say-avoid li {
+  padding: 5px 0 5px 22px;
+  position: relative;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.say-avoid .say li::before {
+  content: '✓';
+  position: absolute; left: 0;
+  color: var(--ok); font-weight: 700;
+}
+.say-avoid .avoid li::before {
+  content: '✕';
+  position: absolute; left: 0;
+  color: var(--ban); font-weight: 700;
+}
+
+.note {
+  background: var(--cream);
+  border-left: 3px solid var(--forest);
+  border-radius: 4px 10px 10px 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.note strong { color: var(--forest); }
+
+.legal-note {
+  background: var(--warm-light);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.small { font-size: 12px; color: var(--ink-mute); line-height: 1.5; }
+
+.quote {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--forest);
+  line-height: 1.4;
+  padding: 24px 0;
+  letter-spacing: -0.01em;
+}
+.quote-sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* TIMELINE */
+.timeline {
+  list-style: none;
+  padding: 0;
+  counter-reset: step;
+}
+.timeline li {
+  counter-increment: step;
+  padding: 16px 0 16px 60px;
+  position: relative;
+  border-bottom: 1px solid var(--rule-soft);
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.timeline li:last-child { border-bottom: none; }
+.timeline li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  background: var(--forest);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+.timeline li strong { font-weight: 600; }
+.timeline li .desc { font-size: 13px; color: var(--ink-soft); margin-top: 4px; line-height: 1.5; }
+
+footer {
+  max-width: 1100px;
+  margin: 56px auto 0;
+  padding: 24px 32px;
+  border-top: 1px solid var(--rule);
+  font-size: 11px;
+  color: var(--ink-mute);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+footer .mark { color: var(--forest); font-weight: 700; letter-spacing: 0.06em; }
+
+@media (max-width: 720px) {
+  .container { padding: 0 20px; }
+  section.slide { padding: 28px 24px; }
+  .grid-2, .grid-3, .say-avoid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 32px; }
+  h2.section-title { font-size: 22px; }
+}
 </style>
 </head>
 <body>
 
-  <div class="nav-bar">
-    <a href="./">📋 Reviews v3</a>
-    <a href="./keywords.html">🔑 Keyword Strategy</a>
-    <a href="./inquiry.html">✉️ Coupang Inquiry</a>
-    <a href="./gonggu-strategy.html">📊 공구 Strategy</a>
-    <a href="./gonggu-proposal.html" class="current">📄 공구제안서 v1</a>
+<div class="topnav">
+  <div class="row">
+    <div class="brand">AVO · All Vital Organics</div>
+    <div class="meta">공동구매 제안서 · 2026.05.22</div>
   </div>
+</div>
 
-  <div class="page">
+<div class="container">
 
-    <div class="doc-title-band">공 구 제 안 서</div>
-    <div class="doc-date">작 성 일 : 2026-05-20</div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">와일드 그린즈 샐러두유 · 공동구매 제안</div>
+    <h1>공동구매 제안서</h1>
+    <p class="lede">AVO 와일드 그린즈 샐러두유 공구 협업 제안. 1988년 시작된 다움(Daoom) 38년 헤리티지 위에서 출발한 한국 자연주의 식품 브랜드의 첫 SKU. 가격·정산·운영 조건 모두 정리해 한 번에 안내드립니다.</p>
+    <div class="strip">
+      <div class="item"><span class="k">제품</span><span class="v">와일드 그린즈 샐러두유</span></div>
+      <div class="item"><span class="k">박스 구성</span><span class="v">15팩 / 박스 · 2박스부터</span></div>
+      <div class="item"><span class="k">배송</span><span class="v">무료 (AVO 부담)</span></div>
+      <div class="item"><span class="k">정산</span><span class="v">D+7 영업일</span></div>
+    </div>
+  </header>
 
-    <!-- INFO BLOCK -->
-    <div class="info-block">
-      <table class="info-table">
-        <tr><th>공급사</th><td>재니스바스켓㈜ <span class="small-note">(AVO 와일드 그린즈 샐러두유 유통전문판매원)</span></td></tr>
-        <tr><th>사업자번호</th><td>[재니스바스켓 사업자번호 기입]</td></tr>
-        <tr><th>주소</th><td>서울특별시 광진구 천호대로 840 1층 (광장동)</td></tr>
-        <tr><th>대표</th><td>박정은</td></tr>
-        <tr><th>연락처</th><td>[발주·정산 담당 직통번호]</td></tr>
-        <tr><th>발주/정산담당</th><td>박정은 / [이메일]</td></tr>
-        <tr><th>계좌번호</th><td>[은행명] [계좌번호] / 예금주 재니스바스켓㈜</td></tr>
-      </table>
-      <table class="info-table">
-        <tr><th>공구업체</th><td class="fill">상호명 기입</td></tr>
-        <tr><th>사업자번호</th><td class="fill">사업자등록번호</td></tr>
-        <tr><th>주소</th><td class="fill">사업장 주소</td></tr>
-        <tr><th>대표</th><td class="fill">대표자명</td></tr>
-        <tr><th>연락처</th><td class="fill">연락처</td></tr>
-        <tr><th>발주/정산담당</th><td class="fill">담당자명 / 이메일</td></tr>
-        <tr><th>계좌번호</th><td class="fill">정산 입금 계좌</td></tr>
-      </table>
+  <!-- SLIDE 01 · BRAND -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">01</span>
+      <span class="name">Brand</span>
+    </div>
+    <h2 class="section-title">All Vital Organics (AVO)</h2>
+    <h3 class="section-sub">1988년 시작된 다움(Daoom)의 38년, 3대 가족 식품 사업의 다음 챕터.</h3>
+
+    <p class="body-p">AVO는 1988년 김수경 박사가 설립한 한국 자연주의 식품 회사 <strong>다움(Daoom)</strong>의 3세대 브랜드입니다. 다움은 한국 최초로 동결건조 통식품 분말을 만들었고, 38년 동안 단 하나의 원칙을 양보하지 않았습니다 — <strong>"음식은 가능한 한 원래의 형태로 몸에 닿아야 한다."</strong></p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="k">1988</div>
+        <div class="v">서해식품 창립</div>
+        <div class="sub">한국 최초 동결건조 케일 분말 생산</div>
+      </div>
+      <div class="card">
+        <div class="k">1990</div>
+        <div class="v">다움(Daoom) 사명 전환</div>
+        <div class="sub">강남 우슬초 약국 운영</div>
+      </div>
+      <div class="card">
+        <div class="k">2026</div>
+        <div class="v">AVO 출발</div>
+        <div class="sub">3세대 · 다음 세대 자연주의 식품 브랜드</div>
+      </div>
     </div>
 
-    <!-- OPTION DESCRIPTION -->
-    <div style="background: var(--cream); border: 1px solid var(--line); border-radius: 6px; padding: 14px 18px; margin-bottom: 14px; font-size: 12px; color: var(--ink); line-height: 1.6;">
-      <strong style="color: var(--forest);">셀러마진율 2가지 옵션 — 협업 형태에 따라 선택</strong><br>
-      <strong>옵션 A (25%) — Standard 공구:</strong> 첫 협업 · 단발성 진행 · 별도 약정 없음<br>
-      <strong>옵션 B (20%) — 우대 단가:</strong> 월 정기 공구 약정 · 카테고리 일정기간 독점 · 또는 최소 발주량 commit (협의)
-    </div>
+    <p class="body-p" style="margin-top:18px;">와일드 그린즈 샐러두유는 그 위에서 만든 첫 결과물입니다. 18종 국산 유기농 과채를 통째로 동결건조해 두유에 담은 한 팩 — 다움의 38년 노하우가 들어간 차세대 자연주의 식품.</p>
+  </section>
 
-    <!-- OPTION A · 25% -->
-    <div style="background: var(--forest); color: white; padding: 8px 14px; border-radius: 6px 6px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.04em;">
-      옵션 A · 셀러마진율 25% (Standard)
+  <!-- SLIDE 02 · PRODUCT -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">02</span>
+      <span class="name">Product</span>
     </div>
-    <table class="pricing-table" style="border-radius: 0 0 6px 6px; margin-top: -1px;">
+    <h2 class="section-title">와일드 그린즈 샐러두유</h2>
+    <h3 class="section-sub">한 팩에 담은 18종 유기농 과채 — 가장 쉽고 맛있는 채소 섭취.</h3>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="k">용량 · 칼로리</div>
+        <div class="v">190 mL · 80 kcal</div>
+        <div class="sub">1팩 · single-serve pouch</div>
+      </div>
+      <div class="card">
+        <div class="k">박스 구성</div>
+        <div class="v">15팩 / 박스</div>
+        <div class="sub">박스당 정상가 39,900원 (네이버·쿠팡 동일)</div>
+      </div>
+      <div class="card">
+        <div class="k">두유 베이스</div>
+        <div class="v">원액두유 95.205%</div>
+        <div class="sub">NonGMO 국산 백태 100%</div>
+      </div>
+      <div class="card">
+        <div class="k">과채 분말</div>
+        <div class="v">18종 동결건조</div>
+        <div class="sub">모두 국산 유기농 인증</div>
+      </div>
+      <div class="card">
+        <div class="k">단백질 · 식이섬유 · 칼슘</div>
+        <div class="v">5g · 5,000mg · 90mg</div>
+        <div class="sub">계란 1알 · 바나나 2개 · 두부 1모 분량</div>
+      </div>
+      <div class="card">
+        <div class="k">단맛</div>
+        <div class="v">코코넛꽃액즙</div>
+        <div class="sub">백설탕 · 인공감미료 없음</div>
+      </div>
+      <div class="card">
+        <div class="k">4종 무첨가</div>
+        <div class="v">안정제 · 유화제<br>증점제 · 향료</div>
+        <div class="sub">시중 두유와의 가장 큰 차별점</div>
+      </div>
+      <div class="card">
+        <div class="k">인증</div>
+        <div class="v">HACCP · NonGMO · 유기농</div>
+        <div class="sub">대학두유(주) 제조 · 서울대 평창캠퍼스 내</div>
+      </div>
+      <div class="card">
+        <div class="k">식감 · 풍미</div>
+        <div class="v">진한 미숫가루처럼<br>꾸덕한 식감</div>
+        <div class="sub">고소하고 은은하게 달달함</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 03 · WHY -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">03</span>
+      <span class="name">Why 공동구매</span>
+    </div>
+    <h2 class="section-title">공구 채널에 적합한 이유</h2>
+    <h3 class="section-sub">스토리·차별화·콘텐츠 — 세 가지 측면에서 운영사 채널에 잘 어울리는 제품.</h3>
+
+    <ul class="bullet">
+      <li><strong>스토리 깊이</strong> · 38년 다움 헤리티지 + 식약동원 철학 = 콘텐츠로 풀어낼 narrative 풍부함.</li>
+      <li><strong>제품 차별화</strong> · 채소·과일 18종을 통째로 동결건조해 두유에 담은 컨셉은 시중에 없음. "샐러두유" 자체가 카테고리어.</li>
+      <li><strong>감각 hook</strong> · 진한 미숫가루 같은 꾸덕한 식감 · 코코넛꽃 천연 단맛 — 실제 시음 후 후기 콘텐츠로 풀기 좋음.</li>
+      <li><strong>오디언스 매칭</strong> · 2030 직장인 · 워킹맘 · 헬시 라이프 · 비건 · 임산부 등 다양한 페르소나 hit.</li>
+      <li><strong>가격 정책 안정</strong> · 박스당 정상가 39,900원 네이버·쿠팡 동일 — 운영사 채널에서 차별 가격 제시 가능.</li>
+      <li><strong>무료배송 부담 제로</strong> · 2박스부터 AVO 자체 무료배송 — 셀러는 배송 운영 부담 없이 가격에만 집중.</li>
+      <li><strong>운영 지원</strong> · 리뷰 템플릿 · 키워드 · 카피 가이드 · 사진 자료 패키지 제공.</li>
+    </ul>
+
+    <div class="note">
+      <strong>운영사가 강조하기 좋은 angle:</strong> "프라푸치노 같은 식감" · "식후 입가심" · "카페 음료 대신" · "샐러드 한 그릇을 한 팩에" · "유기농 과채 18종 한 번에" 등. 세부 카피 가이드는 슬라이드 07 참고.
+    </div>
+  </section>
+
+  <!-- SLIDE 04 · PRICING OPTION A -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">04</span>
+      <span class="name">Pricing · Option A</span>
+    </div>
+    <h2 class="section-title">공구 가격 구조 — Option A</h2>
+    <h3 class="section-sub">셀러마진율 25% · 첫 협업 · 단발성 · 표준 조건</h3>
+
+    <div class="option-banner">Option A · 셀러마진율 25% (Standard)</div>
+    <table class="tbl pricing-table" style="margin-top:0; border-radius: 0 0 10px 10px;">
       <thead>
         <tr>
-          <th rowspan="2">상품명</th>
-          <th rowspan="2">이미지</th>
-          <th rowspan="2">구성</th>
-          <th rowspan="2">정상가</th>
-          <th rowspan="2">공구판매가</th>
-          <th rowspan="2">셀러공급가</th>
-          <th rowspan="2">셀러마진</th>
-          <th rowspan="2" style="background: var(--highlight);">셀러마진율</th>
-          <th colspan="3" style="background: #E8E8E8;">벤더 (해당 시)</th>
-          <th rowspan="2">배송비 정책</th>
-          <th rowspan="2">비고</th>
-        </tr>
-        <tr>
-          <th>벤더공급가</th>
-          <th>벤더마진</th>
-          <th style="background: var(--highlight-blue);">벤더마진율</th>
+          <th>구성</th>
+          <th>정상가</th>
+          <th>공구판매가</th>
+          <th>1팩 환산</th>
+          <th>할인율</th>
+          <th>셀러공급가</th>
+          <th>셀러마진</th>
+          <th>마진율</th>
+          <th>배송</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="product-cell" rowspan="4">AVO 와일드 그린즈<br>샐러두유<br><span style="font-weight: 400; font-size: 10px; color: var(--ink-soft);">190ml × 15팩/박스<br>유기농 18종 과채<br>4종 첨가물 무첨가</span></td>
-          <td class="img-cell" rowspan="4">
-            <div class="img-placeholder">샐러두유<br>제품샷</div>
-          </td>
-          <td>1박스 (15팩)</td>
-          <td class="num">39,900</td>
-          <td class="num">29,900</td>
-          <td class="num">22,425</td>
-          <td class="num">7,475</td>
-          <td class="num yellow">25%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">유료배송<br>(고객부담)<br>3,500원</td>
-          <td class="bigo">VAT 포함</td>
-        </tr>
-        <tr>
-          <td>2박스 (30팩)</td>
+          <td><strong>2박스 (30팩)</strong></td>
           <td class="num">79,800</td>
-          <td class="num">57,000</td>
-          <td class="num">42,750</td>
-          <td class="num">14,250</td>
+          <td class="num">54,900</td>
+          <td class="num">1,830</td>
+          <td class="num">31%</td>
+          <td class="num">41,175</td>
+          <td class="num">13,725</td>
           <td class="num yellow">25%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">무료배송<br>(셀러부담)</td>
-          <td class="bigo">사은품 +1팩 / VAT 포함</td>
+          <td>무료 (AVO 부담)</td>
         </tr>
         <tr>
-          <td>3박스 (45팩)</td>
-          <td class="num">119,700</td>
-          <td class="num">84,000</td>
-          <td class="num">63,000</td>
-          <td class="num">21,000</td>
+          <td><strong>6박스 (90팩)</strong></td>
+          <td class="num">239,400</td>
+          <td class="num">159,000</td>
+          <td class="num">1,767</td>
+          <td class="num">34%</td>
+          <td class="num">119,250</td>
+          <td class="num">39,750</td>
           <td class="num yellow">25%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">무료배송<br>(셀러부담)</td>
-          <td class="bigo">사은품 +3팩 / VAT 포함</td>
+          <td>무료 (AVO 부담)</td>
         </tr>
         <tr>
-          <td>4박스 (60팩)</td>
-          <td class="num">159,600</td>
-          <td class="num">109,000</td>
-          <td class="num">81,750</td>
-          <td class="num">27,250</td>
+          <td><strong>10박스 (150팩)</strong></td>
+          <td class="num">399,000</td>
+          <td class="num">259,000</td>
+          <td class="num">1,727</td>
+          <td class="num">35%</td>
+          <td class="num">194,250</td>
+          <td class="num">64,750</td>
           <td class="num yellow">25%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">무료배송<br>(셀러부담)</td>
-          <td class="bigo">사은품 +5팩 + 텀블러 / VAT 포함</td>
+          <td>무료 (AVO 부담)</td>
         </tr>
       </tbody>
     </table>
+    <p class="small" style="margin-top:10px;">모든 가격은 VAT 포함 · 박스당 정상가 39,900원 기준. 공동구매는 2박스부터 진행 · 전 구간 AVO 자체 무료배송. 셀러마진율 25%는 단발성 첫 협업 기본 조건.</p>
+  </section>
 
-    <!-- OPTION B · 20% -->
-    <div style="background: var(--sage); color: var(--forest); padding: 8px 14px; border-radius: 6px 6px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; margin-top: 18px;">
-      옵션 B · 셀러마진율 20% (우대 단가 · 약정 협업 시)
+  <!-- SLIDE 05 · PRICING OPTION B -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">05</span>
+      <span class="name">Pricing · Option B</span>
     </div>
-    <table class="pricing-table" style="border-radius: 0 0 6px 6px; margin-top: -1px;">
+    <h2 class="section-title">공구 가격 구조 — Option B</h2>
+    <h3 class="section-sub">셀러마진율 20% · 우대 단가 · 월 정기 / 독점기간 / 최소 발주량 약정 시</h3>
+
+    <div class="option-banner b">Option B · 셀러마진율 20% (우대 단가)</div>
+    <table class="tbl pricing-table" style="margin-top:0; border-radius: 0 0 10px 10px;">
       <thead>
         <tr>
-          <th rowspan="2">상품명</th>
-          <th rowspan="2">이미지</th>
-          <th rowspan="2">구성</th>
-          <th rowspan="2">정상가</th>
-          <th rowspan="2">공구판매가</th>
-          <th rowspan="2">셀러공급가</th>
-          <th rowspan="2">셀러마진</th>
-          <th rowspan="2" style="background: var(--highlight);">셀러마진율</th>
-          <th colspan="3" style="background: #E8E8E8;">벤더 (해당 시)</th>
-          <th rowspan="2">배송비 정책</th>
-          <th rowspan="2">비고</th>
-        </tr>
-        <tr>
-          <th>벤더공급가</th>
-          <th>벤더마진</th>
-          <th style="background: var(--highlight-blue);">벤더마진율</th>
+          <th>구성</th>
+          <th>정상가</th>
+          <th>공구판매가</th>
+          <th>1팩 환산</th>
+          <th>할인율</th>
+          <th>셀러공급가</th>
+          <th>셀러마진</th>
+          <th>마진율</th>
+          <th>배송</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="product-cell" rowspan="4">AVO 와일드 그린즈<br>샐러두유<br><span style="font-weight: 400; font-size: 10px; color: var(--ink-soft);">190ml × 15팩/박스<br>유기농 18종 과채<br>4종 첨가물 무첨가</span></td>
-          <td class="img-cell" rowspan="4">
-            <div class="img-placeholder">샐러두유<br>제품샷</div>
-          </td>
-          <td>1박스 (15팩)</td>
-          <td class="num">39,900</td>
-          <td class="num">29,900</td>
-          <td class="num">23,920</td>
-          <td class="num">5,980</td>
-          <td class="num yellow">20%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">유료배송<br>(고객부담)<br>3,500원</td>
-          <td class="bigo">VAT 포함</td>
-        </tr>
-        <tr>
-          <td>2박스 (30팩)</td>
+          <td><strong>2박스 (30팩)</strong></td>
           <td class="num">79,800</td>
-          <td class="num">57,000</td>
-          <td class="num">45,600</td>
-          <td class="num">11,400</td>
+          <td class="num">54,900</td>
+          <td class="num">1,830</td>
+          <td class="num">31%</td>
+          <td class="num">43,920</td>
+          <td class="num">10,980</td>
           <td class="num yellow">20%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">무료배송<br>(셀러부담)</td>
-          <td class="bigo">사은품 +1팩 / VAT 포함</td>
+          <td>무료 (AVO 부담)</td>
         </tr>
         <tr>
-          <td>3박스 (45팩)</td>
-          <td class="num">119,700</td>
-          <td class="num">84,000</td>
-          <td class="num">67,200</td>
-          <td class="num">16,800</td>
+          <td><strong>6박스 (90팩)</strong></td>
+          <td class="num">239,400</td>
+          <td class="num">159,000</td>
+          <td class="num">1,767</td>
+          <td class="num">34%</td>
+          <td class="num">127,200</td>
+          <td class="num">31,800</td>
           <td class="num yellow">20%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">무료배송<br>(셀러부담)</td>
-          <td class="bigo">사은품 +3팩 / VAT 포함</td>
+          <td>무료 (AVO 부담)</td>
         </tr>
         <tr>
-          <td>4박스 (60팩)</td>
-          <td class="num">159,600</td>
-          <td class="num">109,000</td>
-          <td class="num">87,200</td>
-          <td class="num">21,800</td>
+          <td><strong>10박스 (150팩)</strong></td>
+          <td class="num">399,000</td>
+          <td class="num">259,000</td>
+          <td class="num">1,727</td>
+          <td class="num">35%</td>
+          <td class="num">207,200</td>
+          <td class="num">51,800</td>
           <td class="num yellow">20%</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num blue">—</td>
-          <td class="bigo">무료배송<br>(셀러부담)</td>
-          <td class="bigo">사은품 +5팩 + 텀블러 / VAT 포함</td>
+          <td>무료 (AVO 부담)</td>
         </tr>
       </tbody>
     </table>
+    <p class="small" style="margin-top:10px;">모든 가격은 VAT 포함 · 박스당 정상가 39,900원 기준 · 전 구간 AVO 자체 무료배송. Option B 적용 조건: 월 정기 공구 / 카테고리 일정기간 독점 / 최소 발주량 commit — 셋 중 하나 이상.</p>
+  </section>
 
-    <div class="small-note">
-      ※ 옵션 A는 모든 첫 공구 협업 기본. 옵션 B는 추가 약정 (월정기 / 독점기간 / 최소 발주량) 있을 시 적용. 옵션 선택은 본 제안서 회신 시 명시 부탁드립니다.<br>
-      ※ 벤더 미사용 (직접 거래) 조건. 벤더 매칭 시 셀러공급가 기준 추가 5–10% 벤더마진 조정 협의 가능.<br>
-      ※ 상기 가격은 일반식품 (식품위생법 두유류) 기준이며 모두 VAT 포함. 효능·효과·면역 등 표현은 일반식품 단속 대상이므로 셀러 카피에 사용을 피해주시기 바랍니다.
+  <!-- SLIDE 06 · OPERATIONS -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">06</span>
+      <span class="name">Operations</span>
+    </div>
+    <h2 class="section-title">운영 조건</h2>
+    <h3 class="section-sub">정산 · 배송 · 발주 · 반품 · 샘플 — 한국 F&B 공구 표준 기준.</h3>
+
+    <table class="tbl">
+      <thead>
+        <tr><th style="width: 130px;">항목</th><th>내용</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>최소 구성</strong></td>
+          <td><strong>공동구매 2박스 (30팩) 부터 진행.</strong> 1박스 단품은 정상가 채널 (자사몰·네이버·쿠팡) 전용.</td>
+        </tr>
+        <tr>
+          <td><strong>샘플규정</strong></td>
+          <td>공동구매 합의 시 1박스 (15팩) 샘플 무상 제공 · 운영사 시연·시음용. 합의 후 미진행 시 샘플 비용 별도 협의.</td>
+        </tr>
+        <tr>
+          <td><strong>배송비</strong></td>
+          <td>
+            <strong>전 구간 무료배송 — AVO 부담.</strong><br>
+            택배사: CJ대한통운<br>
+            · 제주·도서산간 추가 비용도 AVO 부담<br>
+            · 반품·교환 왕복: 7,000원 (단순변심 시 구매자 부담)
+          </td>
+        </tr>
+        <tr>
+          <td><strong>교환·반품</strong></td>
+          <td>
+            · 제품 하자 또는 구매자 귀책사유가 아닌 파손: 무상 교환·반품<br>
+            · 단순변심: 왕복 택배비 7,000원 구매자 부담<br>
+            · 식품 특성상 개봉 시 환불 불가
+          </td>
+        </tr>
+        <tr>
+          <td><strong>배송정책</strong></td>
+          <td>당일 12시 이전 발주 → 당일 발송 / 12시 이후 발주 → 익일 발송</td>
+        </tr>
+        <tr>
+          <td><strong>발주마감</strong></td>
+          <td>매일 오전 11시 (당일 발송 기준)</td>
+        </tr>
+        <tr>
+          <td><strong>발주양식</strong></td>
+          <td>AVO 자체 양식 전달 (SKU / 수량 / 배송지 / 수령인 / 연락처 / 배송 요청사항)</td>
+        </tr>
+        <tr>
+          <td><strong>정산</strong></td>
+          <td>
+            <strong>공동구매 마감 후 7영업일 이내 정산</strong> · 세금계산서 발행<br>
+            · 셀러 링크 기준 정산<br>
+            · 정산 시 환불·미수령 건은 차감 후 입금
+          </td>
+        </tr>
+        <tr>
+          <td><strong>거래 구조</strong></td>
+          <td>운영사 직접 거래 기본. 중개 파트너 참여 시 조건 별도 협의.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SLIDE 07 · COPY GUIDE -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">07</span>
+      <span class="name">Copy Guide</span>
+    </div>
+    <h2 class="section-title">운영사 카피 가이드</h2>
+    <h3 class="section-sub">공구 운영사가 자체 채널 (블로그·카페·인스타·라이브 등)에서 제품 소개 시 준수 사항.</h3>
+
+    <p class="body-p"><strong>본 제품은 일반식품(가공두유) 입니다.</strong> 식품위생법 + 식품등의 표시·광고에 관한 법률 준수를 위해, 의료적·신체적 효능 주장은 사용할 수 없습니다.</p>
+
+    <div class="say-avoid">
+      <div class="say">
+        <h4>✓ 사용 가능 — 사실 기반 · 법적 안전</h4>
+        <ul>
+          <li>"식이섬유 5g 함유 (1일 영양성분기준치 20%)"</li>
+          <li>"칼슘 90mg 함유 (1일 영양성분기준치 13%)"</li>
+          <li>"단백질 5g — 계란 1알 분량"</li>
+          <li>"원액두유 95.205% · NonGMO 백태 100% 국산"</li>
+          <li>"18종 유기농 국산 동결건조 과채"</li>
+          <li>"4종 첨가물 무첨가 (안정제·유화제·증점제·향료)"</li>
+          <li>"코코넛꽃액즙 천연 단맛"</li>
+          <li>"HACCP 인증 시설 제조"</li>
+          <li>"진한 미숫가루처럼 꾸덕한 식감"</li>
+          <li>"프라푸치노 같은 식감"</li>
+          <li>"아침 대용 · 식사 대용 · 식후 입가심 · 간식 대용"</li>
+          <li>"카페 음료 대신 · 그린주스 대안"</li>
+          <li>"1988년 다움 · 38년 식품 헤리티지"</li>
+          <li>"식약동원 철학" (브랜드 가치 설명)</li>
+        </ul>
+      </div>
+      <div class="avoid">
+        <h4>✕ 사용 금지 — 위법 가능 · 표시광고법 위반</h4>
+        <ul>
+          <li>"치료" / "예방" / "개선" + 질병명</li>
+          <li>"다이어트 효과" / "살 빠짐" / "체중 감량"</li>
+          <li>"디톡스" / "독소 제거"</li>
+          <li>"효능" / "효과" + 신체기능</li>
+          <li>"면역력 강화" / "항산화"</li>
+          <li>"노화 방지" / "주름 개선" / "피부 좋아짐"</li>
+          <li>"변비 해결" / "장 건강" / "장 미생물 개선"</li>
+          <li>"콜레스테롤 낮춤" / "혈당 안정"</li>
+          <li>"건강기능식품" 표기 (본 제품은 일반식품)</li>
+          <li>"보충제" / "supplement" 표기</li>
+          <li>의학적 권유 / 의사 흉내</li>
+          <li>경쟁 브랜드 직접 명명 (매일두유 / 베지밀 / 삼육두유 등)</li>
+          <li>"무첨가" 외 첨가물 — 일부만 무첨가인데 전체 무첨가처럼 오인 표현</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- OPERATIONAL BLOCKS -->
-    <table class="ops-table" style="margin-top: 18px;">
-      <tr>
-        <th>샘플규정</th>
-        <td>공동구매 진행 시 1박스 (15팩) 무상 지원. 공구 미진행 시 정산에서 차감 반영.</td>
-      </tr>
-      <tr>
-        <th>배송비</th>
-        <td>
-          <ul>
-            <li>택배사: CJ대한통운</li>
-            <li>1박스 구매: 고객부담 3,500원 / 제주·도서산간 추가 비용 4,000원</li>
-            <li>2박스 이상 구매: 무료배송 (셀러부담)</li>
-            <li>반품·교환 왕복 배송비: 7,000원 (단순변심 시 구매자 부담)</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <th>교환/반품 기준</th>
-        <td>
-          <ul>
-            <li>본 제품에 하자 또는 구매자의 귀책사유가 아닌 파손된 부분이 있을 시 무상 교환/반품 가능</li>
-            <li>구매자의 단순 변심으로 인한 교환/반품 희망 시 왕복 택배비 구매자 부담 (7,000원)</li>
-            <li>식품 특성상 개봉 시 환불 불가</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <th>배송정책</th>
-        <td>당일 12시 이전 구매 → 당일 발송 / 당일 12시 이후 구매 → 익일 발송</td>
-      </tr>
-      <tr>
-        <th>발주마감</th>
-        <td>매일 오전 11시 (당일 발송 기준)</td>
-      </tr>
-      <tr>
-        <th>발주양식</th>
-        <td>재니스바스켓㈜ → 자체 양식 전달 (SKU / 수량 / 배송지 / 수령인 / 연락처 / 배송 요청사항)</td>
-      </tr>
-      <tr>
-        <th>정산</th>
-        <td>
-          <ul>
-            <li>공동구매 마감 후 <strong>7영업일 이내 정산</strong> / 세금계산서 발행</li>
-            <li>셀러 링크 기준 정산. 자사몰 미운영.</li>
-            <li>정산 시 환불·미수령 건은 차감 후 입금</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <th>제품 상세 정보</th>
-        <td>
-          <ul>
-            <li>제품명: 와일드 그린즈 샐러두유 (Wild Greens Salad Soymilk)</li>
-            <li>용량 / 칼로리: 190ml · 80kcal</li>
-            <li>원재료: 원액두유 95.205% (NonGMO 국산 백태 100%) + 18종 유기농 국산 과채 동결건조 분말 + 코코넛꽃액즙분말 + 해조분말</li>
-            <li>주요 영양: 단백질 5g / 식이섬유 5,000mg / 칼슘 90mg</li>
-            <li>4종 무첨가: 안정제 · 유화제 · 증점제 · 향료</li>
-            <li>인증: HACCP · NonGMO · 유기농 (모든 과채 국산)</li>
-            <li>제조원: 농업회사법인 대학두유㈜ (서울대학교 평창캠퍼스 내)</li>
-            <li>식약처 품목보고번호: 2017039705364</li>
-            <li>식품 유형: 가공두유 (일반식품 · 식품위생법)</li>
-            <li>알레르기: 대두 + 밀 함유. 시설 공유: 알류·우유·메밀·땅콩·복숭아·토마토·호두·잣·돼지고기·쇠고기</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <th>셀러 카피 가이드</th>
-        <td>
-          <ul>
-            <li><strong>OK 표현:</strong> 든든함 · 포만감 · 꾸덕함 · 프라푸치노 같은 식감 · 미숫가루 같은 · 아침 대용 · 식후 입가심 · 채소 섭취 · 클린 라벨</li>
-            <li><strong>금지 표현 (단속):</strong> 면역력 · 효과 · 효능 · 다이어트 효과 · 변비 해결 · 콜레스테롤 · 항산화 · 피부 좋아짐 · 치료 · 예방</li>
-            <li><strong>SEO 키워드:</strong> #샐러두유 #와일드그린즈 #채소두유 #18종과채 #유기농두유 #프라푸치노식감 #아침대용 #식후입가심</li>
-            <li>키워드 "샐러두유"를 본문에 3–5회 자연스럽게 사용 권장 (브랜드 코인어 정착 목적)</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <th>운영 지원</th>
-        <td>
-          <ul>
-            <li>제품 사진 (상세컷 · 라이프스타일컷 · 누끼컷) 패키지 제공</li>
-            <li>제품 상세페이지 (PDP) 링크 + 셀러용 카피 가이드 제공</li>
-            <li>리뷰 템플릿 풀 43개 제공 (셀러 본인 후기 작성 시 참고용)</li>
-            <li>고객 CS는 재니스바스켓㈜ 직접 처리 (셀러 부담 없음)</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <th>비고</th>
-        <td>
-          <ul>
-            <li>본 제안서의 가격·조건은 협의에 따라 조정 가능합니다. 특히 셀러 영향력·예상 매출 규모에 따라 셀러마진율 조정 협상 가능 (28–40% 범위).</li>
-            <li>본 제품은 일반식품 (식품위생법) 두유류로 분류됩니다. 건강기능식품 아니며, 질병의 예방·치료를 위한 의약품 아닙니다.</li>
-            <li>공구 진행 전 셀러 측 SNS 채널·예상 매출·진행 기간·홍보 계획 공유 부탁드립니다.</li>
-          </ul>
-        </td>
-      </tr>
+    <div class="legal-note">
+      <strong>필수 표기 (모든 채널):</strong> "본 제품은 식품위생법상 일반식품(두유류)으로 분류되며, 건강기능식품이 아닙니다. 질병의 예방 및 치료를 위한 의약품이 아닙니다."<br><br>
+      본 가이드는 식품위생법 + 표시·광고의 공정화에 관한 법률 + 식약처 부당한 표시·광고의 내용 등에 관한 고시 준수를 위함입니다. 위반 시 운영사 책임이며, AVO는 본 가이드 미준수로 발생한 행정·법적 책임에 대해 사전 통지 후 공구 진행 중단 가능합니다.
+    </div>
+  </section>
+
+  <!-- SLIDE 08 · PRODUCT SPEC -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">08</span>
+      <span class="name">Product Spec</span>
+    </div>
+    <h2 class="section-title">제품 상세 정보</h2>
+    <h3 class="section-sub">소비자 채널 게시용 / 운영사 참고용 — PDP 영양정보표 그대로.</h3>
+
+    <table class="tbl">
+      <thead><tr><th colspan="2">제품 정보</th></tr></thead>
+      <tbody>
+        <tr><td><strong>제품명</strong></td><td>와일드 그린즈 샐러두유 (Wild Greens Salad Soymilk)</td></tr>
+        <tr><td><strong>식품유형</strong></td><td>가공두유 (멸균제품 · 일반식품)</td></tr>
+        <tr><td><strong>품목보고번호</strong></td><td>2017039705364</td></tr>
+        <tr><td><strong>내용량</strong></td><td>190 mL (80 kcal)</td></tr>
+        <tr><td><strong>포장재질</strong></td><td>폴리프로필렌</td></tr>
+        <tr><td><strong>보관방법</strong></td><td>직사광선 피하고 서늘한 곳 상온 보관 · 개봉 후 냉장</td></tr>
+        <tr><td><strong>알레르기 표시</strong></td><td>대두 · 알 함유. 시설 공유: 우유·메밀·땅콩·복숭아·토마토·호두·잣·돼지고기·쇠고기</td></tr>
+      </tbody>
     </table>
 
-    <div class="doc-footer">
-      재니스바스켓㈜ · AVO 와일드 그린즈 샐러두유 공구 담당<br>
-      박정은 대표 · 광장동 사옥 · 2026-05-20
+    <table class="tbl" style="margin-top:14px;">
+      <thead><tr><th>영양성분</th><th>1팩 (190 mL) 당</th><th>1일 영양성분기준치 대비 %</th></tr></thead>
+      <tbody>
+        <tr><td>나트륨</td><td class="num">50 mg</td><td class="num">3%</td></tr>
+        <tr><td>탄수화물</td><td class="num">9 g</td><td class="num">3%</td></tr>
+        <tr><td>· 당류</td><td class="num">8 g</td><td class="num">8%</td></tr>
+        <tr><td>· <strong>식이섬유</strong></td><td class="num"><strong>5 g</strong></td><td class="num"><strong>20%</strong></td></tr>
+        <tr><td>지방</td><td class="num">1.8 g</td><td class="num">3%</td></tr>
+        <tr><td>· 트랜스지방</td><td class="num">0 g</td><td class="num">—</td></tr>
+        <tr><td>· 포화지방</td><td class="num">0.4 g</td><td class="num">3%</td></tr>
+        <tr><td>콜레스테롤</td><td class="num">0 mg</td><td class="num">0%</td></tr>
+        <tr><td>단백질</td><td class="num">5 g</td><td class="num">9%</td></tr>
+        <tr><td><strong>칼슘</strong></td><td class="num"><strong>90 mg</strong></td><td class="num"><strong>13%</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p class="small" style="margin-top:14px;"><strong>원재료명 및 함량:</strong> 원액두유 95.205% [백태(국산) 100%, 두유고형분 7%이상], 코코넛꽃액즙분말, 유기농 동결건조 18종 과일채소 혼합분말 [브로콜리(국산), 당근(국산), 무청(국산), 케일(국산), 밀순(국산), 단호박(국산), 시금치(국산), 유자(국산), 매실(국산), 양배추(국산), 청경채(국산), 브로콜리새싹(국산), 비트(국산), 자색당근(국산), 미나리(국산), 돌나물(국산), 블루베리]. <strong>대두·밀 함유.</strong></p>
+    <p class="small" style="margin-top:6px;"><strong>제조원:</strong> 농업회사법인 대학두유㈜ (강원도 평창군 대화면 평창대로 1241-142, 서울대학교 평창캠퍼스 내) · <strong>유통전문판매원:</strong> 재니스바스켓㈜ (서울특별시 광진구 천호대로 840, 1층 광장동) · <strong>고객상담실:</strong> 02-3445-3030</p>
+  </section>
+
+  <!-- SLIDE 09 · NEXT STEPS -->
+  <section class="slide">
+    <div class="slide-head">
+      <span class="num">09</span>
+      <span class="name">Next Steps</span>
+    </div>
+    <h2 class="section-title">다음 단계 · 연락처</h2>
+    <h3 class="section-sub">조건 회신 → 샘플 → 카피 가이드 공유 → 공구 일정 확정 → 진행.</h3>
+
+    <div class="quote">
+      함께 시작합시다.
+      <span class="quote-sub">매일 마실 수 있는 한 잔의 음식 ─ 와일드 그린즈 샐러두유.</span>
     </div>
 
-  </div>
+    <ol class="timeline">
+      <li>
+        <strong>조건 협의</strong>
+        <div class="desc">Option A (25%) 또는 Option B (20%) 선택 + 운영사 예상 발주량 · 진행 일정 회신. 공동구매 최소 2박스부터.</div>
+      </li>
+      <li>
+        <strong>샘플 발송</strong>
+        <div class="desc">공구 진행 합의 시 1박스 (15팩) 샘플 AVO 부담 무상 발송 · 운영사 내부 시연·시음용.</div>
+      </li>
+      <li>
+        <strong>카피 가이드 공유</strong>
+        <div class="desc">슬라이드 07 카피 가이드 + 제품 사진 자료 + 리뷰 템플릿 패키지 전달.</div>
+      </li>
+      <li>
+        <strong>공구 일정 확정</strong>
+        <div class="desc">오픈 · 마감 · 정산 일자 서면 합의. 발주양식 공유.</div>
+      </li>
+      <li>
+        <strong>1차 공구 진행 + 정산</strong>
+        <div class="desc">모니터링 + 후기 수집. 공구 마감 후 7영업일 이내 정산.</div>
+      </li>
+    </ol>
+
+    <p style="margin-top:24px; font-weight:600; color:var(--ink);">Contact</p>
+    <p class="small" style="margin-top:6px;">
+      <strong>AVO · All Vital Organics</strong><br>
+      유통전문판매원: 재니스바스켓㈜<br>
+      서울특별시 광진구 천호대로 840, 1층 (광장동)<br>
+      고객상담실: 02-3445-3030<br>
+      Instagram: @allvitalorganics<br>
+      Website: <a href="https://allvitalorganics.github.io/avo/" style="color:var(--forest);">allvitalorganics.github.io/avo/</a>
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="mark">AVO · All Vital Organics</div>
+  <div>공동구매 제안서 · v3 · 2026.05.22 · 9 slides</div>
+</footer>
 
 </body>
 </html>
